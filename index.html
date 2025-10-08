@@ -12,22 +12,45 @@
             background-color: #f3f4f6;
             color: #1f2937;
         }
+        /* Oculta el botón de PDF del contenido que se va a exportar */
+        .no-print {
+            display: block;
+        }
+        /* Estilos específicos para la vista de impresión (opcional, pero mejora la calidad del PDF) */
+        @media print {
+            .no-print {
+                display: none !important;
+            }
+            body {
+                margin: 0;
+                padding: 0;
+                background-color: white;
+            }
+        }
     </style>
 </head>
 <body class="bg-gray-100 p-4 sm:p-8">
-    <div class="max-w-4xl mx-auto bg-white shadow-lg rounded-3xl overflow-hidden md:flex">
+
+    <!-- Botón de Descarga de PDF -->
+    <div class="max-w-4xl mx-auto mb-6 text-right no-print">
+        <button onclick="window.open('img/cvPabloLimardo.pdf', '_blank')"
+            class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg shadow-md transition duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50">
+            Descargar CV como PDF
+        </button>
+    </div>
+
+    <!-- Contenedor Principal del CV que se exportará -->
+    <div id="cv-content" class="max-w-4xl mx-auto bg-white shadow-lg rounded-3xl overflow-hidden md:flex">
         <!-- Columna Izquierda (Foto y Contacto) -->
-        <div class="bg-slate-800 text-white p-6 sm:p-10 md:w-1/3 flex flex-col items-center text-center">
-            <!-- Foto de Perfil -->
-            <img id="profile-photo" src="img/imagencv.png" alt="Foto de Pablo Daniel Limardo" class="w-50 h-50 rounded-full border-4 border-white shadow-lg mb-6 object-cover" onerror="this.src='https://placehold.co/300x300/e2e8f0/000?text=Tu+Foto';">
+        <div class="bg-slate-800 text-white p-5 sm:p-8 md:w-1/3 flex flex-col items-center text-center">
+            <!-- Foto de Perfil - RUTA ACTUALIZADA -->
+            <img id="profile-photo" src="./img/imagen.jpg" alt="Foto de Pablo Daniel Limardo" class="w-48 h-48 rounded-full border-4 border-white shadow-lg mb-4 object-cover" onerror="this.src='https://placehold.co/192x192/e2e8f0/000?text=Tu+Foto';">
             <h2 class="text-3xl font-bold mb-2">Pablo Daniel Limardo</h2>
 
-
-            
             <!-- Sección de Habilidades -->
-            <div class="w-full text-left mt-8">
-                <h3 class="text-xl font-semibold border-b border-gray-600 pb-2 mb-4">Habilidades</h3>
-                <ul class="list-none space-y-2">
+            <div class="w-full text-left mt-6">
+                <h3 class="text-xl font-semibold border-b border-gray-600 pb-2 mb-3">Habilidades</h3>
+                <ul class="list-none space-y-2 text-sm">
                     <li><strong class="text-amber-400">Desarrollo de Software:</strong> Python, JavaScript, HTML, CSS, SQL y C++</li>
                     <li><strong class="text-amber-400">Inteligencia Artificial:</strong> Integración de IA, Pensamiento Computacional, Algoritmos, Gemini, NotebookLM, IA Studio, Claude y ChatGPT</li>
                     <li><strong class="text-amber-400">Herramientas:</strong> Arduino, Docker, Git, JIRA, MERN</li>
@@ -35,31 +58,31 @@
                 </ul>
             </div>
 
- <!-- Sección de Contacto -->
-            <div class="w-full text-left mt-8">
-                <h3 class="text-xl font-semibold border-b border-gray-600 pb-2 mb-4">Contacto</h3>
-                <p class="mb-2"><strong>Teléfono:</strong> <a href="tel:+542902415223">+54-2902-415223</a></p>
-                <p class="mb-2"><strong>Email:</strong> <a href="mailto:plimardo@gmail.com">plimardo@gmail.com</a></p>
-                <p class="mb-2"><strong>GitHub:</strong> <a href="http://github.com/pablolimardo">github.com/pablolimardo</a></p>
+            <!-- Sección de Contacto -->
+            <div class="w-full text-left mt-6">
+                <h3 class="text-xl font-semibold border-b border-gray-600 pb-2 mb-3">Contacto</h3>
+                <p class="mb-1 text-sm"><strong>Teléfono:</strong> <a href="tel:+542902415223">+54-2902-415223</a></p>
+                <p class="mb-1 text-sm"><strong>Email:</strong> <a href="mailto:plimardo@gmail.com">plimardo@gmail.com</a></p>
+                <p class="mb-1 text-sm"><strong>GitHub:</strong> <a href="http://github.com/pablolimardo">github.com/pablolimardo</a></p>
             </div>
         </div>
 
         <!-- Columna Derecha (Resumen, Experiencia y Formación) -->
-        <div class="p-6 sm:p-10 md:w-2/3">
+        <div class="p-5 sm:p-8 md:w-2/3">
             <!-- Resumen Profesional -->
-            <h2 class="text-2xl font-bold border-b-2 border-slate-300 pb-2 mb-4">Perfil Profesional</h2>
-            <p class="text-gray-700 leading-relaxed mb-8">
-                Técnico en Computación y docente con amplia experiencia en desarrollo de software y aplicaciones SCADA. Especializado en encontrar e implementar soluciones tecnológicas que optimicen procesos y mejoren la calidad de vida. Mi trayectoria en el área educativa y mi constante actualización en el campo de la Inteligencia Artificial y el desarrollo de software me han dotado de las herramientas necesarias para guiar a equipos en la integración de nuevas tecnologías. Busco aplicar mi pasión por la innovación para contribuir al avance tecnológico en el sector educativo.
+            <h2 class="text-xl font-bold border-b-2 border-slate-300 pb-1 mb-3">Perfil Profesional</h2>
+            <p class="text-gray-700 leading-snug text-sm mb-6">
+                Técnico en Computación y docente con amplia experiencia en desarrollo de software y aplicaciones SCADA. Especializado en encontrar e implementar soluciones tecnológicas que optimicen procesos y mejoren la calidad de vida. Mi trayectoria en el área educativa, mi experiencia en asesoría **freelance** para mantener contacto con el sector productivo y mi constante actualización en el campo de la Inteligencia Artificial y el desarrollo de software me han dotado de las herramientas necesarias para guiar a equipos en la integración de nuevas tecnologías. Busco aplicar mi pasión por la innovación y el **trabajo en equipo** para contribuir al avance tecnológico en el sector educativo.
             </p>
 
             <!-- Experiencia Laboral -->
-            <h2 class="text-2xl font-bold border-b-2 border-slate-300 pb-2 mb-4">Experiencia Laboral</h2>
-            <div class="space-y-6">
+            <h2 class="text-xl font-bold border-b-2 border-slate-300 pb-1 mb-3">Experiencia Laboral</h2>
+            <div class="space-y-4">
                 <!-- Docente -->
                 <div>
-                    <h3 class="text-xl font-semibold text-slate-800">Docente</h3>
-                    <p class="text-gray-500 italic">Escuela Industrial Nº9 El Calafate (2021 - Presente)</p>
-                    <ul class="list-disc list-inside mt-2 text-gray-700 space-y-1">
+                    <h3 class="text-lg font-semibold text-slate-800">Docente</h3>
+                    <p class="text-gray-500 italic text-sm">Escuela Industrial Nº9 El Calafate (2021 - Presente)</p>
+                    <ul class="list-disc list-inside mt-1 text-gray-700 space-y-0.5 text-sm">
                         <li>Enseñanza de programación y desarrollo de aplicaciones SCADA.</li>
                         <li>Formación de futuros profesionales en automatización y control de procesos industriales.</li>
                         <li>Integración de conceptos de lógica computacional y pensamiento algorítmico.</li>
@@ -68,9 +91,9 @@
 
                 <!-- Consultor Digital -->
                 <div>
-                    <h3 class="text-xl font-semibold text-slate-800">Consultor Digital (Freelance)</h3>
-                    <p class="text-gray-500 italic">2019 - Presente</p>
-                    <ul class="list-disc list-inside mt-2 text-gray-700 space-y-1">
+                    <h3 class="text-lg font-semibold text-slate-800">Consultor Digital (Freelance)</h3>
+                    <p class="text-gray-500 italic text-sm">2019 - Presente</p>
+                    <ul class="list-disc list-inside mt-1 text-gray-700 space-y-0.5 text-sm">
                         <li>Desarrollo de estrategias y herramientas digitales para el crecimiento de PYMES y emprendedores.</li>
                         <li>Asesoramiento en la digitalización de negocios y optimización de flujos de trabajo.</li>
                     </ul>
@@ -78,19 +101,19 @@
 
                 <!-- Co-fundador (Agencia) -->
                 <div>
-                    <h3 class="text-xl font-semibold text-slate-800">Co-fundador</h3>
-                    <p class="text-gray-500 italic">PIA Agencia (2017 - 2019)</p>
-                    <ul class="list-disc list-inside mt-2 text-gray-700 space-y-1">
+                    <h3 class="text-lg font-semibold text-slate-800">Co-fundador</h3>
+                    <p class="text-gray-500 italic text-sm">PIA Agencia (2017 - 2019)</p>
+                    <ul class="list-disc list-inside mt-1 text-gray-700 space-y-0.5 text-sm">
                         <li>Liderazgo en el desarrollo de marketing digital, contenidos y soluciones web.</li>
                         <li>Gestión de equipos y proyectos para asegurar la entrega de servicios de alta calidad.</li>
                     </ul>
                 </div>
-                
+
                 <!-- Gerente Técnico -->
                 <div>
-                    <h3 class="text-xl font-semibold text-slate-800">Gerente Técnico</h3>
-                    <p class="text-gray-500 italic">COTECAL (2003 - 2015)</p>
-                    <ul class="list-disc list-inside mt-2 text-gray-700 space-y-1">
+                    <h3 class="text-lg font-semibold text-slate-800">Gerente Técnico</h3>
+                    <p class="text-gray-500 italic text-sm">COTECAL (2003 - 2015)</p>
+                    <ul class="list-disc list-inside mt-1 text-gray-700 space-y-0.5 text-sm">
                         <li>Desempeño de diversas funciones de liderazgo en el departamento técnico.</li>
                         <li>Responsable de la gestión del equipo, asegurando la eficiencia y el cumplimiento de los objetivos.</li>
                     </ul>
@@ -98,19 +121,19 @@
             </div>
 
             <!-- Formación Académica -->
-            <h2 class="text-2xl font-bold border-b-2 border-slate-300 pb-2 mt-8 mb-4">Formación Académica y Complementaria</h2>
-            <div class="space-y-6">
+            <h2 class="text-xl font-bold border-b-2 border-slate-300 pb-1 mt-6 mb-3">Formación Académica y Complementaria</h2>
+            <div class="space-y-4">
                 <!-- Talleres de IA -->
                 <div>
-                    <h3 class="text-xl font-semibold text-slate-800">Talleres de Formación en IA y Pensamiento Computacional</h3>
-                    <p class="text-gray-500 italic">2023 - 2021</p>
-                    <p class="text-gray-700 mt-2">Capacitación sobre la integración de la Inteligencia Artificial y el pensamiento computacional en el ámbito educativo para optimizar los procesos de enseñanza.</p>
+                    <h3 class="text-lg font-semibold text-slate-800">Talleres de Formación en IA y Pensamiento Computacional</h3>
+                    <p class="text-gray-500 italic text-sm">2024 - 2021</p>
+                    <p class="text-gray-700 mt-1 text-sm">Capacitación sobre la integración de la Inteligencia Artificial y el pensamiento computacional en el ámbito educativo para optimizar los procesos de enseñanza.</p>
                 </div>
-                <!-- Otros estudios -->
+                <!-- Estudios en curso y finalizados -->
                 <div>
-                    <h3 class="text-xl font-semibold text-slate-800">Otros Estudios</h3>
-                    <ul class="list-disc list-inside mt-2 text-gray-700 space-y-1">
-                        <li>Tecnicatura Universitaria en Programación (UTN, en curso)</li>
+                    <h3 class="text-lg font-semibold text-slate-800">Estudios Formales</h3>
+                    <ul class="list-disc list-inside mt-1 text-gray-700 space-y-0.5 text-sm">
+                        <li>Tecnicatura Universitaria en Programación (UTN, en curso, 1er año)</li>
                         <li>Programa de reconversión IT (2021)</li>
                         <li>Técnico en Computación (ENET Nº26 "Confederación Suiza", 1993 - 1998)</li>
                     </ul>
@@ -118,5 +141,25 @@
             </div>
         </div>
     </div>
+
+    <script>
+        
+        // Función para asegurar que se cargue la imagen
+        window.onload = function() {
+            const img = document.getElementById('profile-photo');
+            // La ruta principal ahora es la ruta local que especificaste
+            img.src = './img/imagen.jpg'; 
+            
+            // Si la imagen falla (por ejemplo, si no existe la carpeta img/), usa un placeholder.
+            img.onerror = function() {
+                console.error("No se pudo cargar la imagen desde './img/imagen.jpg'. Usando placeholder.");
+                // Intentamos con la imagen subida en el último paso como fallback
+                img.src = 'image_60036c.jpg'; 
+                img.onerror = function() {
+                    img.src = 'https://placehold.co/192x192/e2e8f0/000?text=Tu+Foto';
+                }
+            };
+        };
+    </script>
 </body>
 </html>
